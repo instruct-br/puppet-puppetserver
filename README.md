@@ -18,7 +18,7 @@ This module will install the latest puppetserver 5 series in your system.
 
 **If you are looking into puppet 4 and puppetserver 2 please use an older version of this module.**
 
-This module can also configure puppetdb integration.
+This module can also configure puppetdb integration, but it does not configure the agent.
 
 This is a very simple module, usually used for development and test purposes.
 
@@ -36,7 +36,7 @@ This module was tested under these platforms
 - Debian 8
 - Ubuntu 16.04
 
-Tested only in X86_64 arch.  
+Tested only in X86_64 arch.
 
 #### Debian 8 notes
 
@@ -101,7 +101,6 @@ class { 'puppetserver':
   version            => '5.1.4-1.el7',
   autosign           => true,
   java_args          => '-Xms2g -Xmx2g -XX:MaxPermSize=256m',
-  agent_version      => '5.3.3-1.el7',
   puppetdb           => true,
   puppetdb_version   => '5.1.3-1.el7',
   puppetdb_server    => $trusted['certname'],
@@ -118,7 +117,6 @@ class { 'puppetserver':
   version            => '5.1.4-1.el6',
   autosign           => true,
   java_args          => '-Xms2g -Xmx2g -XX:MaxPermSize=256m',
-  agent_version      => '5.3.3-1.el6',
   puppetdb           => true,
   puppetdb_version   => '5.1.3-1.el6',
   puppetdb_server    => $trusted['certname'],
@@ -135,7 +133,6 @@ class { 'puppetserver':
   version            => '5.1.4-1puppetlabs1',
   autosign           => true,
   java_args          => '-Xms2g -Xmx2g -XX:MaxPermSize=256m',
-  agent_version      => '5.3.3-1xenial',
   puppetdb           => true,
   puppetdb_version   => '5.1.3-1puppetlabs1',
   puppetdb_server    => $trusted['certname'],
@@ -152,7 +149,6 @@ class { 'puppetserver':
   version            => '5.1.4-1puppetlabs1',
   autosign           => true,
   java_args          => '-Xms2g -Xmx2g -XX:MaxPermSize=256m',
-  agent_version      => '5.3.3-1jessie',
   puppetdb           => true,
   puppetdb_version   => '5.1.3-1puppetlabs1',
   puppetdb_server    => $trusted['certname'],
@@ -198,12 +194,6 @@ Type: String
 
 Configuration for the puppetserver JVM.
 
-#### `agent_version`
-
-Type: String
-
-The puppet agent package version ( 5.3.3-1.el7 | installed | latest )
-
 #### `puppetdb`
 
 Type: Boolean
@@ -247,8 +237,6 @@ puppetserver::version: '5.1.4-1.el7'
 puppetserver::autosign: false
 puppetserver::java_args: '-Xms2g -Xmx2g -XX:MaxPermSize=256m'
 puppetserver::system_config_path: '/etc/sysconfig'
-
-puppetserver::agent_version: '5.3.3-1.el7'
 ```
 
 ### Hiera module config
@@ -319,7 +307,7 @@ This module uses puppet-lint, puppet-syntax, metadata-json-lint, rspec-puppet, b
 
 #### Running acceptance tests
 
-Acceptance tests (Beaker) can be executed using ./acceptance.sh. There is a matrix 1/5 to test this class under Centos 6/7, Debian 8 and Ubuntu 14.04/16.04.
+Acceptance tests (Beaker) can be executed using ./acceptance.sh. There is a matrix 1/5 to test this class under Centos 6/7, Debian 8 and Ubuntu 16.04.
 
     bash ./acceptance.sh
 

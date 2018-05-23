@@ -3,12 +3,12 @@ class puppetserver::config {
 
   augeas {'main_certname':
     context => '/files/etc/puppetlabs/puppet/puppet.conf',
-    changes => [ "set main/certname ${puppetserver::certname}", ],
+    changes => [ "set master/certname ${puppetserver::certname}", ],
   }
 
   augeas {'main_server':
     context => '/files/etc/puppetlabs/puppet/puppet.conf',
-    changes => [ "set main/server ${puppetserver::certname}", ],
+    changes => [ "set master/server ${puppetserver::certname}", ],
   }
 
   augeas {'java_args':

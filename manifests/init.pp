@@ -8,7 +8,6 @@
 # @param [String] certname Certificate name for the server and agent
 # @param [String] version Package version for puppetserver
 # @param [Boolean] autosign Set the parameter autosign inside puppet.conf
-# @param [String] agent_version Package version for puppet agent
 # @param [String] java_args Set the JAVA_ARGS for puppetserver JVM
 # @param [String] system_config_path The path to be used for the system config
 # @param [Boolean] puppetdb Define if puppetdb integration is enabled
@@ -20,7 +19,6 @@ class puppetserver(
   String $certname,
   String $version,
   Boolean $autosign,
-  String $agent_version,
   String $java_args,
   String $system_config_path,
   Boolean $puppetdb,
