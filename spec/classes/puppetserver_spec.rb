@@ -17,7 +17,7 @@ describe 'puppetserver', :type => :class do
 
         context 'puppetserver::install defaults' do
           it { is_expected.to contain_package('puppetserver') }
-          it { is_expected.to contain_package('puppet-agent') }
+          it { is_expected.not_to contain_package('puppet-agent') }
         end
 
         context 'puppetserver::install when puppetdb true' do
@@ -43,20 +43,16 @@ describe 'puppetserver', :type => :class do
           }
           it { is_expected.to contain_file('/etc/puppetlabs/puppet/routes.yaml') }
           it { is_expected.to contain_file('/etc/puppetlabs/puppet/puppetdb.conf') }
-          end
+        end
 
-          context 'puppetserver::service defaults' do
-            it { is_expected.to contain_service('puppetserver').with({
-              'ensure' => 'running',
-              'enable' => true,
-              })
-            }
-            it { is_expected.to contain_service('puppet').with({
-              'ensure' => 'running',
-              'enable' => true,
-              })
-            }
-          end
+        context 'puppetserver::service defaults' do
+          it { is_expected.to contain_service('puppetserver').with({
+            'ensure' => 'running',
+            'enable' => true,
+            })
+          }
+          it { is_expected.not_to contain_service('puppet') }
+        end
+    end
   end
- end
 end

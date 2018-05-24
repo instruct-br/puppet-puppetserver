@@ -6,9 +6,4 @@ class puppetserver::service {
     enable => true,
   }
 
-  service { 'puppet':
-    ensure => 'running',
-    enable => true,
-  }
-
 }
