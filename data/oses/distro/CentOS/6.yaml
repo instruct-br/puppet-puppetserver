@@ -1,2 +1,1 @@
 puppetserver::version: '5.3.1-1.el6'
-puppetserver::puppetdb_version: '5.2.2-1.el6'

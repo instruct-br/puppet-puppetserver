@@ -20,11 +20,6 @@ describe 'puppetserver', :type => :class do
           it { is_expected.not_to contain_package('puppet-agent') }
         end
 
-        context 'puppetserver::install when puppetdb true' do
-          let(:params) { { puppetdb: true } }
-          it { is_expected.to contain_package('puppetdb-termini') }
-        end
-
         context 'puppetserver::config defaults' do
           it { is_expected.to contain_augeas('main_certname').with({
             'context' => '/files/etc/puppetlabs/puppet/puppet.conf',
