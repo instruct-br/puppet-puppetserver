@@ -4,9 +4,9 @@ HOSTS:
       - agent
       - default
     platform: ubuntu-16.04-amd64
-    box: gutocarvalho/ubuntu1604x64puppet5
+    box: ubuntu/xenial64
     hypervisor: vagrant
-    vagrant_memsize: 2600
+    vagrant_memsize: 3000
 
 CONFIG:
   type: aio
