@@ -8,6 +8,4 @@ puppetserver::version: 'installed'
 puppetserver::autosign: false
 puppetserver::java_args: '-Xms2g -Xmx2g -XX:MaxPermSize=256m'
 
-puppetserver::agent_version: 'installed'
-
 puppetserver::system_config_path: '/files/etc/sysconfig'
