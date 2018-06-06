@@ -75,23 +75,24 @@ You should configure your /etc/hosts properly.
 
 ### Requirements
 
-- Puppet >= 5.0.0
-- Hiera >= 3.4 (v5 format)
+- Puppet >= 5.x
+  - Hiera >= 3.x (v5 format)
+  - Facter >= 3.x
 
 ## Installation
 
 via git
 
     # cd /etc/puppetlabs/code/environment/production/modules
-    # git clone https://github.com/gutocarvalho/puppet-puppetserver.git puppetserver
+    # git clone https://github.com/instruct-br/puppet-puppetserver.git puppetserver
 
 via puppet
 
-    # puppet module install gutocarvalho/puppetserver
+    # puppet module install instruct-br/puppetserver
 
 via puppetfile
 
-    mod 'gutocarvalho-puppetserver'
+    mod 'instructbr-puppetserver'
 
 ## Usage
 
@@ -106,11 +107,11 @@ via puppetfile
 ```
 class { 'puppetserver':
   certname           => $trusted['certname'],
-  version            => '5.1.4-1.el7',
+  version            => '5.3.1-1.el7',
   autosign           => true,
   java_args          => '-Xms2g -Xmx2g -XX:MaxPermSize=256m',
   puppetdb           => true,
-  puppetdb_version   => '5.1.3-1.el7',
+  puppetdb_version   => '5.2.2-1.el7',
   puppetdb_server    => $trusted['certname'],
   puppetdb_port      => 8081,
   system_config_path => '/etc/sysconfig'
@@ -122,7 +123,7 @@ class { 'puppetserver':
 ```
 class { 'puppetserver':
   certname           => $trusted['certname'],
-  version            => '5.1.4-1.el6',
+  version            => '5.3.1-1.el6',
   autosign           => true,
   java_args          => '-Xms2g -Xmx2g -XX:MaxPermSize=256m',
   puppetdb           => true,
@@ -138,11 +139,11 @@ class { 'puppetserver':
 ```
 class { 'puppetserver':
   certname           => $trusted['certname'],
-  version            => '5.1.4-1puppetlabs1',
+  version            => '5.3.1-1puppetlabs1',
   autosign           => true,
   java_args          => '-Xms2g -Xmx2g -XX:MaxPermSize=256m',
   puppetdb           => true,
-  puppetdb_version   => '5.1.3-1puppetlabs1',
+  puppetdb_version   => '5.2.2-1puppetlabs1',
   puppetdb_server    => $trusted['certname'],
   puppetdb_port      => 8081,
   system_config_path => '/etc/default'
@@ -154,11 +155,11 @@ class { 'puppetserver':
 ```
 class { 'puppetserver':
   certname           => $trusted['certname'],
-  version            => '5.1.4-1puppetlabs1',
+  version            => '5.3.1-1puppetlabs1',
   autosign           => true,
   java_args          => '-Xms2g -Xmx2g -XX:MaxPermSize=256m',
   puppetdb           => true,
-  puppetdb_version   => '5.1.3-1puppetlabs1',
+  puppetdb_version   => '5.2.2-1puppetlabs1',
   puppetdb_server    => $trusted['certname'],
   puppetdb_port      => 8081,
   system_config_path => '/etc/default'
@@ -188,7 +189,7 @@ Certificate name for the agent and server.
 
 Type: String
 
-The puppet server package version. ( 5.1.4-1puppetlabs1 | installed | latest )
+The puppet server package version. ( 5.3.1-1puppetlabs1 | installed | latest )
 
 #### `autosign`
 
@@ -212,7 +213,7 @@ If true it will config puppetdb integration.
 
 Type: String
 
-The puppetdb package version. ( 5.1.3-1puppetlabs1 | installed | latest )
+The puppetdb package version. ( 5.2.2-1puppetlabs1 | installed | latest )
 
 #### `puppetdb_server`
 
@@ -238,10 +239,10 @@ Path for the default OS configuration for puppetserver package.
 puppetserver::puppetdb: false
 puppetserver::puppetdb_server: "%{::ipaddress}"
 puppetserver::puppetdb_port: 8081
-puppetserver::puppetdb_version: '5.1.3-1.el7'
+puppetserver::puppetdb_version: '5.2.2-1.el7'
 
 puppetserver::certname: "%{trusted.certname}"
-puppetserver::version: '5.1.4-1.el7'
+puppetserver::version: '5.3.1-1.el7'
 puppetserver::autosign: false
 puppetserver::java_args: '-Xms2g -Xmx2g -XX:MaxPermSize=256m'
 puppetserver::system_config_path: '/etc/sysconfig'
@@ -287,10 +288,10 @@ oses/distro/Debian/8.yaml
 
 This module was developed using
 
-- Puppet 5.3
-  - Hiera 3.4 (v5 format)
-  - Facter 2.5
-- CentOS 7.4
+- Puppet 5.5
+  - Hiera 3.33.3 (v5 format)
+  - Facter 3.11
+  - CentOS 7.4
 - Vagrant 2.0.1
   - box: gutocarvalho/centos7x64puppet5
 
@@ -315,7 +316,7 @@ This module uses puppet-lint, puppet-syntax, metadata-json-lint, rspec-puppet, b
 
 #### Running acceptance tests
 
-Acceptance tests (Beaker) can be executed using ./acceptance.sh. There is a matrix 1/4 to test this class under Centos 6/7 and Ubuntu 16.04.
+Acceptance tests (Beaker) can be executed using ./acceptance.sh. There is a matrix 1/3 to test this class under Centos 6/7 and Ubuntu 16.04.
 
     bash ./acceptance.sh
 
@@ -335,7 +336,10 @@ Our matrix values
 
 This matrix needs vagrant (>=2.x) and virtualbox (>=5.1) to work properly, make sure that you have both of them installed.
 
-### Author/Contributors
+### Author
 
 Guto Carvalho (gutocarvalho at instruct dot com dot br)
+
+### Contributors
+
 Taciano Tres (taciano at instruct dot com dot br)
