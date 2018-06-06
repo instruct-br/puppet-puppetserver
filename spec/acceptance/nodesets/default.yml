@@ -4,9 +4,9 @@ HOSTS:
       - agent
       - default
     platform: el-7-x86_64
-    box: gutocarvalho/centos7x64puppet5
+    box: centos/7
     hypervisor: vagrant
-    vagrant_memsize: 2600
+    vagrant_memsize: 3000
 
 CONFIG:
   type: aio
