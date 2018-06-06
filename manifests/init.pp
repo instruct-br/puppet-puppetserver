@@ -11,7 +11,6 @@
 # @param [String] java_args Set the JAVA_ARGS for puppetserver JVM
 # @param [String] system_config_path The path to be used for the system config
 # @param [Boolean] puppetdb Define if puppetdb integration is enabled
-# @param [String] puppetdb_version Package version for puppetdb
 # @param [String] puppetdb_server Host or ip for puppetdv service
 # @param [Integer] puppetdb_port Port to connect for puppetdb service
 
@@ -22,7 +21,6 @@ class puppetserver(
   String $java_args,
   String $system_config_path,
   Boolean $puppetdb,
-  String $puppetdb_version,
   String $puppetdb_server,
   Integer[1024,65535] $puppetdb_port,
   ) {
