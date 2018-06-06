@@ -1,17 +1,17 @@
 {
      "name": "gutocarvalho-puppetserver",
-     "version": "1.4.0",
+     "version": "2.0.0",
      "author": "Guto Carvalho",
      "license": "Apache-2.0",
      "summary": "A simple Puppet module for puppetserver",
-     "source": "https://github.com/gutocarvalho/puppet-puppetserver",
-     "project_page": "https://github.com/gutocarvalho/puppet-puppetserver",
-     "issues_url": "https://github.com/gutocarvalho/puppet-puppetserver/issues",
-     "tags": ["puppet5", "puppetserver5","puppetdb5","puppet","puppetserver","puppetdb","puppet-agent","hiera"],
+     "source": "https://github.com/instruct-br/puppet-puppetserver",
+     "project_page": "https://github.com/instruct-br/puppet-puppetserver",
+     "issues_url": "https://github.com/instruct-br/puppet-puppetserver/issues",
+     "tags": ["puppet5", "puppetserver5","puppetdb5","puppet","puppetserver","puppetdb","hiera"],
      "requirements": [
     {
       "name": "puppet",
-      "version_requirement": ">=4.5.0 < 6.0.0"
+      "version_requirement": ">=5.0.0 < 6.0.0"
     }
    ],
      "operatingsystem_support": [
@@ -39,11 +39,6 @@
        "operatingsystem": "Ubuntu",
        "architecture": "x86_64",
        "operatingsystemrelease": [ "16.04" ]
-       },
-       {
-       "operatingsystem": "Debian",
-       "architecture": "x86_64",
-       "operatingsystemrelease": [ "8" ]
        }
       ],
     "dependencies": [
