@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/gutocarvalho/puppet-puppetserver.svg?branch=master)](https://travis-ci.org/gutocarvalho/puppet-puppetserver)  ![License](https://img.shields.io/badge/license-Apache%202-blue.svg) ![Version](https://img.shields.io/puppetforge/v/gutocarvalho/puppetserver.svg) ![Downloads](https://img.shields.io/puppetforge/dt/gutocarvalho/puppetserver.svg)
+[![Build Status](https://travis-ci.org/instruct-br/puppet-puppetserver.svg?branch=master)](https://travis-ci.org/instruct-br/puppet-puppetserver)  ![License](https://img.shields.io/badge/license-Apache%202-blue.svg) ![Version](https://img.shields.io/puppetforge/v/gutocarvalho/puppetserver.svg) ![Downloads](https://img.shields.io/puppetforge/dt/gutocarvalho/puppetserver.svg)
 
 # Puppetserver
 
@@ -16,8 +16,6 @@
 
 This module will install the latest puppetserver 5 series in your system.
 
-**If you are looking into puppet 4 and puppetserver 2 please use an older version of this module.**
-
 This module can also configure puppetdb integration, but it does not configure the agent.
 
 This is a very simple module, usually used for development and test purposes.
@@ -33,19 +31,29 @@ Augeas resource type is used to change parameters inside the puppet.conf.
 This module was tested under these platforms
 
 - CentOS 6 and 7
-- Debian 8
+- Debian 8, 9
 - Ubuntu 16.04
 
 Tested only in X86_64 arch.
 
-#### Debian 8 notes
+#### Debian notes
 
-You need to enable debian jessie backports and install jdk8 before use this module.
+Debian is not officially supported, but the module works on Debian 8/9. You just need to enable debian backports and install jdk8 before use the module.
+
+Instructions for Debian 8
 
 ```
 echo "deb http://ftp.debian.org/debian jessie-backports main" >> /etc/apt/sources.list
 apt-get update
 apt-get -y -t jessie-backports install "openjdk-8-jdk-headless"
+```
+
+Instructions for Debian 9
+
+```
+echo "deb http://ftp.debian.org/debian stretch-backports main" >> /etc/apt/sources.list
+apt-get update
+apt-get -y -t stretch-backports install "openjdk-8-jdk-headless"
 ```
 In the future I will try to support this requirements inside the module, for now, you should do this before.
 
@@ -307,7 +315,7 @@ This module uses puppet-lint, puppet-syntax, metadata-json-lint, rspec-puppet, b
 
 #### Running acceptance tests
 
-Acceptance tests (Beaker) can be executed using ./acceptance.sh. There is a matrix 1/5 to test this class under Centos 6/7, Debian 8 and Ubuntu 16.04.
+Acceptance tests (Beaker) can be executed using ./acceptance.sh. There is a matrix 1/4 to test this class under Centos 6/7 and Ubuntu 16.04.
 
     bash ./acceptance.sh
 
@@ -323,11 +331,11 @@ Our matrix values
 
     centos-6-x64
     centos-7-x64
-    debian-8-x64
     ubuntu-1604-x64
 
-This matrix needs vagrant (>=1.9) and virtualbox (>=5.1) to work properly, make sure that you have both of them installed.
+This matrix needs vagrant (>=2.x) and virtualbox (>=5.1) to work properly, make sure that you have both of them installed.
 
 ### Author/Contributors
 
-Guto Carvalho (gutocarvalho at gmail dot com)
+Guto Carvalho (gutocarvalho at instruct dot com dot br)
+Taciano Tres (taciano at instruct dot com dot br)
