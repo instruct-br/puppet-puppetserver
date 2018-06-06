@@ -1,46 +1,72 @@
 {
-     "name": "gutocarvalho-puppetserver",
-     "version": "2.0.0",
-     "author": "Guto Carvalho",
-     "license": "Apache-2.0",
-     "summary": "A simple Puppet module for puppetserver",
-     "source": "https://github.com/instruct-br/puppet-puppetserver",
-     "project_page": "https://github.com/instruct-br/puppet-puppetserver",
-     "issues_url": "https://github.com/instruct-br/puppet-puppetserver/issues",
-     "tags": ["puppet5", "puppetserver5","puppetdb5","puppet","puppetserver","puppetdb","hiera"],
-     "requirements": [
+  "name": "gutocarvalho-puppetserver",
+  "version": "2.0.0",
+  "author": "Guto Carvalho",
+  "summary": "A simple Puppet module for puppetserver",
+  "license": "Apache-2.0",
+  "source": "https://github.com/instruct-br/puppet-puppetserver",
+  "project_page": "https://github.com/instruct-br/puppet-puppetserver",
+  "issues_url": "https://github.com/instruct-br/puppet-puppetserver/issues",
+  "dependencies": [
+
+  ],
+  "operatingsystem_support": [
+    {
+      "operatingsystem": "RedHat",
+      "architecture": "x86_64",
+      "operatingsystemrelease": [
+        "6",
+        "7"
+      ]
+    },
+    {
+      "operatingsystem": "CentOS",
+      "architecture": "x86_64",
+      "operatingsystemrelease": [
+        "6",
+        "7"
+      ]
+    },
+    {
+      "operatingsystem": "Scientific",
+      "architecture": "x86_64",
+      "operatingsystemrelease": [
+        "6",
+        "7"
+      ]
+    },
+    {
+      "operatingsystem": "OracleLinux",
+      "architecture": "x86_64",
+      "operatingsystemrelease": [
+        "6",
+        "7"
+      ]
+    },
+    {
+      "operatingsystem": "Ubuntu",
+      "architecture": "x86_64",
+      "operatingsystemrelease": [
+        "16.04"
+      ]
+    }
+  ],
+  "requirements": [
     {
       "name": "puppet",
       "version_requirement": ">=5.0.0 < 6.0.0"
     }
-   ],
-     "operatingsystem_support": [
-       {
-       "operatingsystem":"RedHat",
-       "architecture": "x86_64",
-       "operatingsystemrelease":[ "6","7" ]
-       },
-       {
-       "operatingsystem":"CentOS",
-       "architecture": "x86_64",
-       "operatingsystemrelease":[ "6","7" ]
-       },
-       {
-       "operatingsystem":"Scientific",
-       "architecture": "x86_64",
-       "operatingsystemrelease":[ "6", "7" ]
-       },
-       {
-       "operatingsystem":"OracleLinux",
-       "architecture": "x86_64",
-       "operatingsystemrelease":[ "6", "7" ]
-       },
-       {
-       "operatingsystem": "Ubuntu",
-       "architecture": "x86_64",
-       "operatingsystemrelease": [ "16.04" ]
-       }
-      ],
-    "dependencies": [
-    ]
-   }
+  ],
+  "tags": [
+    "puppet5",
+    "puppetserver5",
+    "puppetdb5",
+    "puppet",
+    "puppetserver",
+    "puppetdb",
+    "hiera"
+  ],
+  "pdk-version": "1.5.0",
+  "template-url": "https://github.com/puppetlabs/pdk-templates",
+  "template-ref": "1.5.0-0-gd1b3eca"
+}

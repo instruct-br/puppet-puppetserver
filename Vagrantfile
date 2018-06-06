@@ -7,7 +7,7 @@ VAGRANTFILE_API_VERSION = "2"
 Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   #config.ssh.insert_key = false
   config.vm.hostname = "puppetserver.hacklab"
-  config.vm.box = "gutocarvalho/centos7x64puppet5"
+  config.vm.box = "centos/7"
   config.vm.provider "virtualbox" do |virtualbox|
     virtualbox.customize [ "modifyvm", :id, "--cpus", "2" ]
     virtualbox.customize [ "modifyvm", :id, "--memory", "3000" ]
