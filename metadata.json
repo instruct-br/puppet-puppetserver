@@ -1,5 +1,5 @@
 {
-  "name": "gutocarvalho-puppetserver",
+  "name": "instruct-puppetserver",
   "version": "2.0.0",
   "author": "Guto Carvalho",
   "summary": "A simple Puppet module for puppetserver",
@@ -60,7 +60,7 @@
   "tags": [
     "puppet5",
     "puppetserver5",
-    "puppetdb5",
+    "puppetdb",
     "puppet",
     "puppetserver",
     "puppetdb",
