@@ -1,4 +1,4 @@
-[![Build Status](https://travis-ci.org/instruct-br/puppet-puppetserver.svg?branch=master)](https://travis-ci.org/instruct-br/puppet-puppetserver)  ![License](https://img.shields.io/badge/license-Apache%202-blue.svg) ![Version](https://img.shields.io/puppetforge/v/gutocarvalho/puppetserver.svg) ![Downloads](https://img.shields.io/puppetforge/dt/gutocarvalho/puppetserver.svg)
+[![Build Status](https://travis-ci.org/instruct-br/puppet-puppetserver.svg?branch=master)](https://travis-ci.org/instruct-br/puppet-puppetserver)  ![License](https://img.shields.io/badge/license-Apache%202-blue.svg) ![Version](https://img.shields.io/puppetforge/v/instruct/puppetserver.svg) ![Downloads](https://img.shields.io/puppetforge/dt/instruct/puppetserver.svg)
 
 # Puppetserver
 
@@ -88,11 +88,11 @@ via git
 
 via puppet
 
-    # puppet module install instruct-br/puppetserver
+    # puppet module install instruct/puppetserver
 
 via puppetfile
 
-    mod 'instructbr-puppetserver'
+    mod 'instruct-puppetserver'
 
 ## Usage
 
@@ -279,7 +279,6 @@ oses/family/Debian.yaml
 oses/distro/CentOS/7.yaml
 oses/distro/CentOS/6.yaml
 oses/distro/Ubuntu/16.04.yaml
-oses/distro/Debian/8.yaml
 ```
 
 ## Development
