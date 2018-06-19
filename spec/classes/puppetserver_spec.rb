@@ -33,7 +33,7 @@ describe 'puppetserver', :type => :class do
 
         context 'puppetserver::config when puppetdb true' do
           let(:params) { { puppetdb: true } }
-          it { is_expected.to contain_augeas('master_storeconfigs').with({
+          it { is_expected.to contain_augeas('master_puppetdb_configs').with({
             'context' => '/files/etc/puppetlabs/puppet/puppet.conf/master',})
           }
           it { is_expected.to contain_file('/etc/puppetlabs/puppet/routes.yaml') }
