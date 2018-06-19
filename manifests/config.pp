@@ -28,11 +28,12 @@ class puppetserver::config {
   }
 
   if $puppetserver::puppetdb {
-    augeas {'master_storeconfigs':
+    augeas {'master_puppetdb_configs':
       context => '/files/etc/puppetlabs/puppet/puppet.conf/master',
       changes => [
         'set storeconfigs true',
         'set storeconfigs_backend puppetdb',
+        'set reports puppetdb,log',
       ],
       notify  => Service['puppetserver']
     }
