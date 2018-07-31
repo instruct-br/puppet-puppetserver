@@ -31,15 +31,6 @@ describe 'puppetserver', :type => :class do
           it { is_expected.to contain_augeas('java_args') }
         end
 
-        context 'puppetserver::config when puppetdb true' do
-          let(:params) { { puppetdb: true } }
-          it { is_expected.to contain_augeas('master_puppetdb_configs').with({
-            'context' => '/files/etc/puppetlabs/puppet/puppet.conf/master',})
-          }
-          it { is_expected.to contain_file('/etc/puppetlabs/puppet/routes.yaml') }
-          it { is_expected.to contain_file('/etc/puppetlabs/puppet/puppetdb.conf') }
-        end
-
         context 'puppetserver::service defaults' do
           it { is_expected.to contain_service('puppetserver').with({
             'ensure' => 'running',
