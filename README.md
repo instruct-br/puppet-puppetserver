@@ -16,8 +16,6 @@
 
 This module will install the latest puppetserver 5 series in your system.
 
-This module can also configure puppetdb integration, but it does not configure the agent.
-
 This is a very simple module, usually used for development and test purposes.
 
 Yes, you can use it in production, but it is a simple module, you may miss some parameters for production use.
@@ -107,45 +105,20 @@ via puppetfile
 ```
 class { 'puppetserver':
   certname           => $trusted['certname'],
-  version            => '5.3.1-1.el7',
+  version            => '5.3.4-1.el7',
   autosign           => true,
   java_args          => '-Xms2g -Xmx2g -XX:MaxPermSize=256m',
-  puppetdb           => true,
-  puppetdb_version   => '5.2.2-1.el7',
-  puppetdb_server    => $trusted['certname'],
-  puppetdb_port      => 8081,
   system_config_path => '/etc/sysconfig'
 }
 ```
-
-#### Example in EL 6
-
-```
-class { 'puppetserver':
-  certname           => $trusted['certname'],
-  version            => '5.3.1-1.el6',
-  autosign           => true,
-  java_args          => '-Xms2g -Xmx2g -XX:MaxPermSize=256m',
-  puppetdb           => true,
-  puppetdb_version   => '5.1.3-1.el6',
-  puppetdb_server    => $trusted['certname'],
-  puppetdb_port      => 8081,
-  system_config_path => '/etc/sysconfig'
-}
-```
-
 #### Example in Ubuntu 16.04
 
 ```
 class { 'puppetserver':
   certname           => $trusted['certname'],
-  version            => '5.3.1-1puppetlabs1',
+  version            => '5.3.4-1puppetlabs1',
   autosign           => true,
   java_args          => '-Xms2g -Xmx2g -XX:MaxPermSize=256m',
-  puppetdb           => true,
-  puppetdb_version   => '5.2.2-1puppetlabs1',
-  puppetdb_server    => $trusted['certname'],
-  puppetdb_port      => 8081,
   system_config_path => '/etc/default'
 }
 ```
@@ -158,10 +131,6 @@ class { 'puppetserver':
   version            => '5.3.1-1puppetlabs1',
   autosign           => true,
   java_args          => '-Xms2g -Xmx2g -XX:MaxPermSize=256m',
-  puppetdb           => true,
-  puppetdb_version   => '5.2.2-1puppetlabs1',
-  puppetdb_server    => $trusted['certname'],
-  puppetdb_port      => 8081,
   system_config_path => '/etc/default'
 }
 ```
@@ -189,7 +158,7 @@ Certificate name for the agent and server.
 
 Type: String
 
-The puppet server package version. ( 5.3.1-1puppetlabs1 | installed | latest )
+The puppet server package version. ( 5.3.4-1puppetlabs1 | installed | latest )
 
 #### `autosign`
 
@@ -203,30 +172,6 @@ Type: String
 
 Configuration for the puppetserver JVM.
 
-#### `puppetdb`
-
-Type: Boolean
-
-If true it will config puppetdb integration.
-
-#### `puppetdb_version`
-
-Type: String
-
-The puppetdb package version. ( 5.2.2-1puppetlabs1 | installed | latest )
-
-#### `puppetdb_server`
-
-Type: String
-
-The puppetdb server address (FQDN).
-
-#### `puppetdb_port`
-
-Type: Integer
-
-The puppetdb port number (8081).
-
 #### `system_config_path`
 
 Type: String
@@ -236,11 +181,6 @@ Path for the default OS configuration for puppetserver package.
 ### Hiera Keys
 
 ```
-puppetserver::puppetdb: false
-puppetserver::puppetdb_server: "%{::ipaddress}"
-puppetserver::puppetdb_port: 8081
-puppetserver::puppetdb_version: '5.2.2-1.el7'
-
 puppetserver::certname: "%{trusted.certname}"
 puppetserver::version: '5.3.1-1.el7'
 puppetserver::autosign: false
