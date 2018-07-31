@@ -1,14 +1,14 @@
 {
   "name": "instruct-puppetserver",
   "version": "2.0.0",
-  "author": "Guto Carvalho",
+  "author": "instruct-br",
   "summary": "A simple Puppet module for puppetserver",
   "license": "Apache-2.0",
   "source": "https://github.com/instruct-br/puppet-puppetserver",
   "project_page": "https://github.com/instruct-br/puppet-puppetserver",
   "issues_url": "https://github.com/instruct-br/puppet-puppetserver/issues",
   "dependencies": [
-
+  
   ],
   "operatingsystem_support": [
     {
@@ -58,12 +58,8 @@
     }
   ],
   "tags": [
-    "puppet5",
-    "puppetserver5",
-    "puppetdb",
-    "puppet",
     "puppetserver",
-    "puppetdb",
+    "puppet",
     "hiera"
   ],
   "pdk-version": "1.5.0",

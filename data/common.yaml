@@ -1,7 +1,3 @@
-puppetserver::puppetdb: false
-puppetserver::puppetdb_server: "%{::ipaddress}"
-puppetserver::puppetdb_port: 8081
-
 puppetserver::certname: "%{trusted.certname}"
 puppetserver::version: 'installed'
 puppetserver::autosign: false
