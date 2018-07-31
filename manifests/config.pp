@@ -26,28 +26,4 @@ class puppetserver::config {
       notify  => Service['puppetserver']
     }
   }
-
-  if $puppetserver::puppetdb {
-    augeas {'master_puppetdb_configs':
-      context => '/files/etc/puppetlabs/puppet/puppet.conf/master',
-      changes => [
-        'set storeconfigs true',
-        'set storeconfigs_backend puppetdb',
-        'set reports puppetdb,log',
-      ],
-      notify  => Service['puppetserver']
-    }
-    file { '/etc/puppetlabs/puppet/routes.yaml':
-      content => epp('puppetserver/routes.yaml.epp'),
-      notify  => Service['puppetserver']
-    }
-    file { '/etc/puppetlabs/puppet/puppetdb.conf':
-      content => epp('puppetserver/puppetdb.conf.epp',
-        {
-        puppetdb_server => $puppetserver::puppetdb_server,
-        puppetdb_port   => $puppetserver::puppetdb_port,
-        }),
-      notify  => Service['puppetserver']
-    }
-  }
 }
