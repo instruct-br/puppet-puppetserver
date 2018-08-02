@@ -100,7 +100,7 @@ via puppetfile
 
 ### Using with parameters
 
-#### Example in EL 7
+#### Basic Example in EL 7
 
 ```
 class { 'puppetserver':
@@ -108,10 +108,9 @@ class { 'puppetserver':
   version            => '5.3.4-1.el7',
   autosign           => true,
   java_args          => '-Xms2g -Xmx2g -XX:MaxPermSize=256m',
-  system_config_path => '/etc/sysconfig'
 }
 ```
-#### Example in Ubuntu 16.04
+#### Basic Example in Ubuntu 16.04
 
 ```
 class { 'puppetserver':
@@ -119,19 +118,30 @@ class { 'puppetserver':
   version            => '5.3.4-1puppetlabs1',
   autosign           => true,
   java_args          => '-Xms2g -Xmx2g -XX:MaxPermSize=256m',
-  system_config_path => '/etc/default'
 }
 ```
 
-#### Example in Debian 8
+#### Basic Example in Debian 8
 
 ```
 class { 'puppetserver':
   certname           => $trusted['certname'],
-  version            => '5.3.1-1puppetlabs1',
+  version            => '5.3.4-1puppetlabs1',
   autosign           => true,
   java_args          => '-Xms2g -Xmx2g -XX:MaxPermSize=256m',
-  system_config_path => '/etc/default'
+}
+```
+
+### Installing a Puppetserver Compiler
+
+```
+class { 'puppetserver':
+  certname           => $trusted['certname'],
+  version            => '5.3.4-1puppetlabs1',
+  autosign           => true,
+  java_args          => '-Xms2g -Xmx2g -XX:MaxPermSize=256m',
+  enable_ca          => false,
+  ca_server          => 'masterca.yourdomain'
 }
 ```
 
@@ -171,6 +181,18 @@ If true puppet server will sign every certificate request.
 Type: String
 
 Configuration for the puppetserver JVM.
+
+#### `enable_ca`
+
+Type: Boolean
+
+If true the CA service will be enabled.
+
+#### `ca_server`
+
+Type: String
+
+When enable_ca is false, ca_server will be used to configure the right CA Server for your puppetserver.
 
 #### `system_config_path`
 

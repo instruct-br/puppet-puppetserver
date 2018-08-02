@@ -1,6 +1,9 @@
+puppetserver::enable_ca: true
 puppetserver::certname: "%{trusted.certname}"
+puppetserver::ca_server: "%{trusted.certname}"
+puppetserver::main_server: "%{trusted.certname}"
 puppetserver::version: 'installed'
 puppetserver::autosign: false
 puppetserver::java_args: '-Xms2g -Xmx2g -XX:MaxPermSize=256m'
-
 puppetserver::system_config_path: '/files/etc/sysconfig'
+puppetserver::dns_alt_names: "puppet,puppet.dev"
