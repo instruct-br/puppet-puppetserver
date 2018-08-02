@@ -28,7 +28,11 @@ describe 'puppetserver', :type => :class do
           it { is_expected.to contain_augeas('main_server').with({
             'context' => '/files/etc/puppetlabs/puppet/puppet.conf',
           })}
+          it { is_expected.to contain_augeas('ca_server').with({
+            'context' => '/files/etc/puppetlabs/puppet/puppet.conf',
+          })}     
           it { is_expected.to contain_augeas('java_args') }
+          it { is_expected.to contain_file('ca_config') }
         end
 
         context 'puppetserver::service defaults' do
