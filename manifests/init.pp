@@ -10,6 +10,8 @@
 # @param [Boolean] autosign Set the parameter autosign inside puppet.conf
 # @param [String] java_args Set the JAVA_ARGS for puppetserver JVM
 # @param [String] system_config_path The path to be used for the system config
+# @param [String] enable_ca Set the parameter to enable the CA service
+# @param [String] ca_server Set the parameter to define the CA Server address
 
 class puppetserver(
   String $certname,
@@ -17,6 +19,11 @@ class puppetserver(
   Boolean $autosign,
   String $java_args,
   String $system_config_path,
+  Boolean $enable_ca,
+  String $ca_server,
+  String $main_server,
+  String $dns_alt_names,
+
   ) {
 
   include puppetserver::install
