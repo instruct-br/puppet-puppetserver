@@ -19,12 +19,20 @@ class puppetserver::config {
       notify  => Service['puppetserver']
   }
 
-  if $puppetserver::enable_ca {
-    augeas {'dns_alt_names':
+  augeas {'dns_alt_names':
+    context => '/files/etc/puppetlabs/puppet/puppet.conf',
+    changes => [ "set main/dns_alt_names ${puppetserver::dns_alt_names}", ],
+    notify  => Service['puppetserver']
+  }
+
+  if ! $puppetserver::enable_ca {
+
+    augeas {'ca_config':
       context => '/files/etc/puppetlabs/puppet/puppet.conf',
-      changes => [ "set main/dns_alt_names ${puppetserver::dns_alt_names}", ],
+      changes => [ 'set master/ca false', ],
       notify  => Service['puppetserver']
     }
+
   }
 
   augeas {'java_args':
