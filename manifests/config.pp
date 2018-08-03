@@ -3,19 +3,19 @@ class puppetserver::config {
 
   augeas {'main_certname':
     context => '/files/etc/puppetlabs/puppet/puppet.conf',
-    changes => [ "set master/certname ${puppetserver::certname}", ],
+    changes => [ "set main/certname ${puppetserver::certname}", ],
     notify  => Service['puppetserver']
   }
 
   augeas {'main_server':
     context => '/files/etc/puppetlabs/puppet/puppet.conf',
-    changes => [ "set master/server ${puppetserver::main_server}", ],
+    changes => [ "set main/server ${puppetserver::main_server}", ],
     notify  => Service['puppetserver']
   }
 
   augeas {'ca_server':
       context => '/files/etc/puppetlabs/puppet/puppet.conf',
-      changes => [ "set main/ca_server ${puppetserver::ca_server}", ],
+      changes => [ "set master/ca_server ${puppetserver::ca_server}", ],
       notify  => Service['puppetserver']
   }
 
