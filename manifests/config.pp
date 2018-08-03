@@ -9,7 +9,7 @@ class puppetserver::config {
 
   augeas {'main_server':
     context => '/files/etc/puppetlabs/puppet/puppet.conf',
-    changes => [ "set master/server ${puppetserver::main_server}", ],
+    changes => [ "set main/server ${puppetserver::main_server}", ],
     notify  => Service['puppetserver']
   }
 
@@ -21,7 +21,7 @@ class puppetserver::config {
 
   augeas {'dns_alt_names':
     context => '/files/etc/puppetlabs/puppet/puppet.conf',
-    changes => [ "set main/dns_alt_names ${puppetserver::dns_alt_names}", ],
+    changes => [ "set master/dns_alt_names ${puppetserver::dns_alt_names}", ],
     notify  => Service['puppetserver']
   }
 
