@@ -12,6 +12,8 @@
 # @param [String] system_config_path The path to be used for the system config
 # @param [String] enable_ca Set the parameter to enable the CA service
 # @param [String] ca_server Set the parameter to define the CA Server address
+# @param [String] dns_alt_names Set the parameter to define the DNS Alt Names for master certificate
+
 
 class puppetserver(
   String $certname,

@@ -20,7 +20,8 @@ This is a very simple module, usually used for development and test purposes.
 
 Yes, you can use it in production, but it is a simple module, you may miss some parameters for production use.
 
-The main objective is to install puppetserver with minimal intervention in the default files.
+The main objective is to install puppetserver with minimal intervention in the default files. The module also supports the configuration of a puppetmaster
+compiler, without CA service.
 
 Augeas resource type is used to change parameters inside the puppet.conf.
 
@@ -142,6 +143,7 @@ class { 'puppetserver':
   java_args          => '-Xms2g -Xmx2g -XX:MaxPermSize=256m',
   enable_ca          => false,
   ca_server          => 'masterca.yourdomain'
+  dns_alt_name       => 'puppet,puppet.dev,puppet.yourdomain.br'
 }
 ```
 
@@ -192,7 +194,15 @@ If true the CA service will be enabled.
 
 Type: String
 
-When enable_ca is false, ca_server will be used to configure the right CA Server for your puppetserver.
+When enable_ca is false, ca_server will be used to configure the CA Server for your puppetserver.
+
+#### `dns_alt_names`
+
+Type: String
+
+When enable_ca is false, dns_alt_names will be used to configure the
+alternative name for  your puppetserver certificate.
+
 
 #### `system_config_path`
 
