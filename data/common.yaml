@@ -7,3 +7,5 @@ puppetserver::autosign: false
 puppetserver::java_args: '-Xms2g -Xmx2g -XX:MaxPermSize=256m'
 puppetserver::system_config_path: '/files/etc/sysconfig'
 puppetserver::dns_alt_names: "puppet,puppet.dev"
+puppetserver::environment: "production"
+puppetserver::runinterval: "3600"

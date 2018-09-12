@@ -13,6 +13,8 @@
 # @param [String] enable_ca Set the parameter to enable the CA service
 # @param [String] ca_server Set the parameter to define the CA Server address
 # @param [String] dns_alt_names Set the parameter to define the DNS Alt Names for master certificate
+# @param [String] environment Set the parameter to define the environment for agent
+# @param [String] runinterval Set the parameter to define the interval between agent runs
 
 
 class puppetserver(
@@ -25,6 +27,8 @@ class puppetserver(
   String $ca_server,
   String $main_server,
   String $dns_alt_names,
+  String $environment,
+  String $runinterval,
 
   ) {
 
