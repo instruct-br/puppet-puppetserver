@@ -19,6 +19,18 @@ class puppetserver::config {
       notify  => Service['puppetserver']
   }
 
+  augeas {'puppetserver_main_environment':
+      context => '/files/etc/puppetlabs/puppet/puppet.conf',
+      changes => [ "set main/environment ${puppetserver::environment}", ],
+      notify  => Service['puppetserver']
+  }
+
+  augeas {'puppetserver_main_runinterval':
+      context => '/files/etc/puppetlabs/puppet/puppet.conf',
+      changes => [ "set main/runinterval ${puppetserver::runinterval}", ],
+      notify  => Service['puppetserver']
+  }
+
   augeas {'puppetserver_master_dns_alt_names':
     context => '/files/etc/puppetlabs/puppet/puppet.conf',
     changes => [ "set master/dns_alt_names ${puppetserver::dns_alt_names}", ],
@@ -27,7 +39,7 @@ class puppetserver::config {
 
   if ! $puppetserver::enable_ca {
 
-    augeas {'puppetserver_ca_config':
+    augeas {'puppetserver_ca_service_config':
       context => '/files/etc/puppetlabs/puppet/puppet.conf',
       changes => [ 'set master/ca false', ],
       notify  => Service['puppetserver']
