@@ -3,7 +3,7 @@ class puppetserver::config {
 
   augeas {'main_certname':
     context => '/files/etc/puppetlabs/puppet/puppet.conf',
-    changes => [ "set master/certname ${puppetserver::certname}", ],
+    changes => [ "set main/certname ${puppetserver::certname}", ],
     notify  => Service['puppetserver']
   }
 
