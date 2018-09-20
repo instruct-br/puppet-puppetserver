@@ -1,4 +1,4 @@
-BOXES=( default centos-6-x64 ubuntu-1604-x64 )
+BOXES=( default centos-6-x64 ubuntu-1604-x64 ubuntu-1804-x64 )
 
 export BEAKER_PUPPET_COLLECTION=puppet5
 
