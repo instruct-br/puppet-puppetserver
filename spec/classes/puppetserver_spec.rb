@@ -17,22 +17,30 @@ describe 'puppetserver', :type => :class do
 
         context 'puppetserver::install defaults' do
           it { is_expected.to contain_package('puppetserver') }
-          it { is_expected.not_to contain_package('puppet-agent') }
         end
 
         context 'puppetserver::config defaults' do
-          it { is_expected.to contain_augeas('main_certname').with({
+          it { is_expected.to contain_augeas('puppetserver_main_certname').with({
             'context' => '/files/etc/puppetlabs/puppet/puppet.conf',
              })
           }
-          it { is_expected.to contain_augeas('main_server').with({
+          it { is_expected.to contain_augeas('puppetserver_main_server').with({
             'context' => '/files/etc/puppetlabs/puppet/puppet.conf',
           })}
-          it { is_expected.to contain_augeas('ca_server').with({
+          it { is_expected.to contain_augeas('puppetserver_main_ca_server').with({
             'context' => '/files/etc/puppetlabs/puppet/puppet.conf',
-          })}     
-          it { is_expected.to contain_augeas('java_args') }
-          it { is_expected.to contain_file('ca_config') }
+          })}
+          it { is_expected.to contain_augeas('puppetserver_main_environment').with({
+            'context' => '/files/etc/puppetlabs/puppet/puppet.conf',
+          })}
+          it { is_expected.to contain_augeas('puppetserver_main_runinterval').with({
+            'context' => '/files/etc/puppetlabs/puppet/puppet.conf',
+          })}
+          it { is_expected.to contain_augeas('puppetserver_master_dns_alt_names').with({
+            'context' => '/files/etc/puppetlabs/puppet/puppet.conf',
+          })}
+          it { is_expected.to contain_augeas('puppetserver_java_args') }
+          it { is_expected.to contain_file('puppetserver_ca_config') }
         end
 
         context 'puppetserver::service defaults' do
