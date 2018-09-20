@@ -101,33 +101,12 @@ via puppetfile
 
 ### Using with parameters
 
-#### Basic Example in EL 7
+#### Installing a Puppetserver with CA Service (default)
 
 ```
 class { 'puppetserver':
   certname           => $trusted['certname'],
-  version            => '5.3.4-1.el7',
-  autosign           => true,
-  java_args          => '-Xms2g -Xmx2g -XX:MaxPermSize=256m',
-}
-```
-#### Basic Example in Ubuntu 16.04
-
-```
-class { 'puppetserver':
-  certname           => $trusted['certname'],
-  version            => '5.3.4-1puppetlabs1',
-  autosign           => true,
-  java_args          => '-Xms2g -Xmx2g -XX:MaxPermSize=256m',
-}
-```
-
-#### Basic Example in Debian 8
-
-```
-class { 'puppetserver':
-  certname           => $trusted['certname'],
-  version            => '5.3.4-1puppetlabs1',
+  version            => '5.3.5-1.el7',
   autosign           => true,
   java_args          => '-Xms2g -Xmx2g -XX:MaxPermSize=256m',
 }
@@ -138,12 +117,12 @@ class { 'puppetserver':
 ```
 class { 'puppetserver':
   certname           => $trusted['certname'],
-  version            => '5.3.4-1puppetlabs1',
+  version            => '5.3.5-1.el7',
   autosign           => true,
   java_args          => '-Xms2g -Xmx2g -XX:MaxPermSize=256m',
   enable_ca          => false,
   ca_server          => 'masterca.yourdomain'
-  dns_alt_name       => 'puppet,puppet.dev,puppet.yourdomain.br'
+  dns_alt_name       => 'puppet,puppet.dev'
 }
 ```
 
