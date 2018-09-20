@@ -49,7 +49,6 @@ describe 'puppetserver', :type => :class do
             'enable' => true,
             })
           }
-          it { is_expected.not_to contain_service('puppet') }
         end
     end
   end
