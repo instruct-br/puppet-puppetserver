@@ -31,7 +31,7 @@ This module was tested under these platforms
 
 - CentOS 6 and 7
 - Debian 8, 9
-- Ubuntu 16.04
+- Ubuntu 16.04 and 18.04
 
 Tested only in X86_64 arch.
 
@@ -170,7 +170,7 @@ Certificate name for the agent and server.
 
 Type: String
 
-The puppet server package version. ( 5.3.4-1puppetlabs1 | installed | latest )
+The puppet server package version. ( 5.3.5-1puppetlabs1 | installed | latest )
 
 #### `autosign`
 
@@ -213,11 +213,17 @@ Path for the default OS configuration for puppetserver package.
 ### Hiera Keys
 
 ```
+puppetserver::enable_ca: true
 puppetserver::certname: "%{trusted.certname}"
-puppetserver::version: '5.3.1-1.el7'
+puppetserver::ca_server: "%{trusted.certname}"
+puppetserver::main_server: "%{trusted.certname}"
+puppetserver::version: 'installed'
 puppetserver::autosign: false
 puppetserver::java_args: '-Xms2g -Xmx2g -XX:MaxPermSize=256m'
-puppetserver::system_config_path: '/etc/sysconfig'
+puppetserver::system_config_path: '/files/etc/sysconfig'
+puppetserver::dns_alt_names: "puppet,puppet.dev"
+puppetserver::environment: "production"
+puppetserver::runinterval: "3600"
 ```
 
 ### Hiera module config
@@ -251,6 +257,7 @@ oses/family/Debian.yaml
 oses/distro/CentOS/7.yaml
 oses/distro/CentOS/6.yaml
 oses/distro/Ubuntu/16.04.yaml
+oses/distro/Ubuntu/18.04.yaml
 ```
 
 ## Development
@@ -287,7 +294,7 @@ This module uses puppet-lint, puppet-syntax, metadata-json-lint, rspec-puppet, b
 
 #### Running acceptance tests
 
-Acceptance tests (Beaker) can be executed using ./acceptance.sh. There is a matrix 1/3 to test this class under Centos 6/7 and Ubuntu 16.04.
+Acceptance tests (Beaker) can be executed using ./acceptance.sh. There is a matrix 1/4 to test this class under Centos 6/7 and Ubuntu 16.04.
 
     bash ./acceptance.sh
 
@@ -304,6 +311,7 @@ Our matrix values
     centos-6-x64
     centos-7-x64
     ubuntu-1604-x64
+    ubuntu-1804-x64
 
 This matrix needs vagrant (>=2.x) and virtualbox (>=5.1) to work properly, make sure that you have both of them installed.
 
