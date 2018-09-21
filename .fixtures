@@ -1,5 +1,0 @@
-fixtures:
-  symlinks:
-    puppetserver: '#{source_dir}'
-  forge_modules:
-    hocon: 'puppetlabs/hocon'
