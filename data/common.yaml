@@ -9,3 +9,4 @@ puppetserver::system_config_path: '/files/etc/sysconfig'
 puppetserver::dns_alt_names: "puppet,puppet.dev"
 puppetserver::environment: "production"
 puppetserver::runinterval: "3600"
+puppetserver::jruby_instances: 1

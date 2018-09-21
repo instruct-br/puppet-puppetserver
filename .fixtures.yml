@@ -1,0 +1,5 @@
+fixtures:
+  repositories:
+    "hocon": "https://github.com/puppetlabs/puppetlabs-hocon"
+  symlinks:
+    "puppetserver": "#{source_dir}"

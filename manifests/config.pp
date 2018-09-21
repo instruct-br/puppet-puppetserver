@@ -53,6 +53,14 @@ class puppetserver::config {
     notify  => Service['puppetserver']
   }
 
+  hocon_setting { 'jruby-puppet.max-active-instances':
+    ensure  => present,
+    path    => '/etc/puppetlabs/puppetserver/conf.d/puppetserver.conf',
+    setting => 'jruby-puppet.max-active-instances',
+    value   => $puppetserver::jruby_instances,
+    notify  => Service['puppetserver']
+  }
+
   file { 'puppetserver_ca_config':
     ensure  => file,
     path    => '/etc/puppetlabs/puppetserver/services.d/ca.cfg',

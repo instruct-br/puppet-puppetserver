@@ -15,6 +15,7 @@
 # @param [String] dns_alt_names Set the parameter to define the DNS Alt Names for master certificate
 # @param [String] environment Set the parameter to define the environment for agent
 # @param [String] runinterval Set the parameter to define the interval between agent runs
+# @param [Integer] jruby_instances Set the parameter to define the number of jruby instances running
 
 
 class puppetserver(
@@ -29,7 +30,7 @@ class puppetserver(
   String $dns_alt_names,
   String $environment,
   String $runinterval,
-
+  Integer $jruby_instances,
   ) {
 
   include puppetserver::install
