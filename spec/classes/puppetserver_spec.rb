@@ -36,7 +36,7 @@ describe 'puppetserver', :type => :class do
           it { is_expected.to contain_augeas('puppetserver_main_runinterval').with({
             'context' => '/files/etc/puppetlabs/puppet/puppet.conf',
           })}
-          it { is_expected.to contain_augeas('puppetserver_master_dns_alt_names').with({
+          it { is_expected.to contain_augeas('puppetserver_main_dns_alt_names').with({
             'context' => '/files/etc/puppetlabs/puppet/puppet.conf',
           })}
           it { is_expected.to contain_augeas('puppetserver_java_args') }
